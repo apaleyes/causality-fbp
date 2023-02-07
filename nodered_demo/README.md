@@ -24,3 +24,17 @@ Running demo flow multiple times and saving `trace.log` file after each run, we 
 * Randomized delay in "Additional delay" node
 
 That gives us the raw data to work with. Data aggregation and application of DoWhy to it can be found in the accompanying notebook.
+
+## Handy cmd
+
+Run the mynodered container with a data folder:
+
+    docker run -it -p 1880:1880 -v node_red_data:/data --name mynodered nodered/node-red
+
+Open bash inside the container:
+
+    docker exec -it mynodered bash
+
+Copy a file from the container to the current dir
+
+    docker cp mynodered:/data/trace.log .
