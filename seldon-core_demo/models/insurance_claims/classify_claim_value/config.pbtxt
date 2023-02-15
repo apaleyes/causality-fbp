@@ -1,0 +1,26 @@
+name: "classify_claim_value"
+backend: "python"
+
+input [
+  {
+    name: "claim_value"
+    data_type: TYPE_FP64
+    dims: [ 1 ]
+  }
+]
+output [
+  {
+    name: "is_high_value_claim"
+    data_type: TYPE_BOOL
+    dims: [ 1 ]
+  }
+]
+output [
+  {
+    name: "is_low_value_claim"
+    data_type: TYPE_BOOL
+    dims: [ 1 ]
+  }
+]
+
+instance_group [{ kind: KIND_CPU }]

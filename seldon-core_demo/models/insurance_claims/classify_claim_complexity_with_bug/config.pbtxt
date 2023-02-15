@@ -1,0 +1,47 @@
+name: "classify_claim_complexity"
+backend: "python"
+
+input [
+  {
+    name: "total_claim_amount"
+    data_type: TYPE_INT64
+    dims: [ 1 ]
+  }
+]
+input [
+  {
+    name: "auto_year"
+    data_type: TYPE_INT64
+    dims: [ 1 ]
+  }
+]
+input [
+  {
+    name: "witnesses"
+    data_type: TYPE_INT64
+    dims: [ 1 ]
+  }
+]
+input [
+  {
+    name: "police_report_available"
+    data_type: TYPE_STRING
+    dims: [ 1 ]
+  }
+]
+output [
+  {
+    name: "is_simple_claim"
+    data_type: TYPE_BOOL
+    dims: [ 1 ]
+  }
+]
+output [
+  {
+    name: "is_complex_claim"
+    data_type: TYPE_BOOL
+    dims: [ 1 ]
+  }
+]
+
+instance_group [{ kind: KIND_CPU }]

@@ -1,0 +1,40 @@
+apiVersion: mlops.seldon.io/v1alpha1
+kind: Pipeline
+metadata:
+  name: insurance_claims
+  namespace: seldon-mesh
+spec:
+  steps:
+    - name: calculate_claim_value
+      inputs:
+        - insurance_claims.inputs.total_claim_amount
+    - name: classify_claim_value
+      inputs:
+        - calculate_claim_value.outputs.claim_value
+    - name: classify_claim_complexity
+      inputs:
+        - insurance_claims.inputs.total_claim_amount
+        - insurance_claims.inputs.auto_year
+        - insurance_claims.inputs.witnesses
+        - insurance_claims.inputs.police_report_available
+      triggers:
+      - classify_claim_value.outputs.is_low_value_claim
+    - name: calculate_simple_claim_payout
+      inputs:
+      - insurance_claims.inputs.total_claim_amount
+      - insurance_claims.inputs.claim_id
+      triggers:
+      - classify_claim_complexity.outputs.is_simple_claim
+    - name: calculate_complex_claim_payout
+      inputs:
+      - insurance_claims.inputs.total_claim_amount
+      - insurance_claims.inputs.claim_id
+      triggers:
+      - classify_claim_value.outputs.is_high_value_claim
+      - classify_claim_complexity.outputs.is_complex_claim
+      triggersJoinType: any
+  output:
+    steps:
+    - calculate_simple_claim_payout
+    - calculate_complex_claim_payout
+    stepsJoin: any

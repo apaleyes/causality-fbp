@@ -1,0 +1,26 @@
+name: "calculate_simple_claim_payout"
+backend: "python"
+
+input [
+  {
+    name: "total_claim_amount"
+    data_type: TYPE_INT64
+    dims: [ 1 ]
+  }
+]
+input [
+  {
+    name: "claim_id"
+    data_type: TYPE_INT64
+    dims: [ 1 ]
+  }
+]
+output [
+  {
+    name: "claim_payout"
+    data_type: TYPE_FP64
+    dims: [ 1 ]
+  }
+]
+
+instance_group [{ kind: KIND_CPU }]
