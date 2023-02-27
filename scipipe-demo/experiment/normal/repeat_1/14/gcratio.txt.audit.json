@@ -1,0 +1,69 @@
+{
+    "ID": "6zaaqp90t905b7u5mupa",
+    "ProcessName": "gcratio",
+    "Command": "gc=$(cat ../gccounts.txt.sum); at=$(cat ../atcounts.txt.sum); calc \"$gc/($gc+$at)\" \u003e gcratio.txt",
+    "Params": {},
+    "Tags": {},
+    "StartTime": "2023-02-25T12:56:38.910528515Z",
+    "FinishTime": "2023-02-25T12:56:38.913406564Z",
+    "ExecTimeNS": 2878049,
+    "OutFiles": {
+        "gcratio": "gcratio.txt"
+    },
+    "Upstream": {
+        "atcounts.txt.sum": {
+            "ID": "hjw87m6mas9xo7m3vcbr",
+            "ProcessName": "atsum",
+            "Command": "awk '{ SUM += $1 } END { print SUM }' ../atcounts.txt \u003e atcounts.txt.sum",
+            "Params": {},
+            "Tags": {},
+            "StartTime": "2023-02-25T12:56:38.907462817Z",
+            "FinishTime": "2023-02-25T12:56:38.910159625Z",
+            "ExecTimeNS": 2696798,
+            "OutFiles": {
+                "sum": "atcounts.txt.sum"
+            },
+            "Upstream": {
+                "atcounts.txt": {
+                    "ID": "zwoi8usov8v1rvji2e77",
+                    "ProcessName": "",
+                    "Command": "",
+                    "Params": {},
+                    "Tags": {},
+                    "StartTime": "0001-01-01T00:00:00Z",
+                    "FinishTime": "0001-01-01T00:00:00Z",
+                    "ExecTimeNS": -1,
+                    "OutFiles": {},
+                    "Upstream": {}
+                }
+            }
+        },
+        "gccounts.txt.sum": {
+            "ID": "hkq1j2hijc8moe7onu7r",
+            "ProcessName": "gcsum",
+            "Command": "awk '{ SUM += $1 } END { print SUM }' ../gccounts.txt \u003e gccounts.txt.sum",
+            "Params": {},
+            "Tags": {},
+            "StartTime": "2023-02-25T12:56:38.90793329Z",
+            "FinishTime": "2023-02-25T12:56:38.910040815Z",
+            "ExecTimeNS": 2107525,
+            "OutFiles": {
+                "sum": "gccounts.txt.sum"
+            },
+            "Upstream": {
+                "gccounts.txt": {
+                    "ID": "x26r53eqguenh3e8hevx",
+                    "ProcessName": "",
+                    "Command": "",
+                    "Params": {},
+                    "Tags": {},
+                    "StartTime": "0001-01-01T00:00:00Z",
+                    "FinishTime": "0001-01-01T00:00:00Z",
+                    "ExecTimeNS": -1,
+                    "OutFiles": {},
+                    "Upstream": {}
+                }
+            }
+        }
+    }
+}

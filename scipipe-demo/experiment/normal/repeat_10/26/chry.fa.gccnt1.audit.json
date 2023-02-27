@@ -1,0 +1,43 @@
+{
+    "ID": "rjqdfx9v4lmdfcl2euij",
+    "ProcessName": "gccount1",
+    "Command": "sed -n $(cat ../start.txt),$(($(cat ../start.txt) + $(cat ../count.txt)))p /home/ubuntu/tmp/y_fasta/dna_segment_1 | fold -w 1 | grep '[GC]' | wc -l | awk '{ print $1 }' \u003e chry.fa.gccnt1",
+    "Params": {},
+    "Tags": {},
+    "StartTime": "2023-02-25T12:57:21.050315027Z",
+    "FinishTime": "2023-02-25T12:57:21.056193522Z",
+    "ExecTimeNS": 5878495,
+    "OutFiles": {
+        "gccount": "chry.fa.gccnt1"
+    },
+    "Upstream": {
+        "count.txt": {
+            "ID": "tckcr14qatzgjgk8ho53",
+            "ProcessName": "count",
+            "Command": "echo 55 \u003e count.txt",
+            "Params": {},
+            "Tags": {},
+            "StartTime": "2023-02-25T12:57:21.048335727Z",
+            "FinishTime": "2023-02-25T12:57:21.049392808Z",
+            "ExecTimeNS": 1057091,
+            "OutFiles": {
+                "count": "count.txt"
+            },
+            "Upstream": {}
+        },
+        "start.txt": {
+            "ID": "1py1aw427bct75f0m5fc",
+            "ProcessName": "start",
+            "Command": "echo 106 \u003e start.txt",
+            "Params": {},
+            "Tags": {},
+            "StartTime": "2023-02-25T12:57:21.048401375Z",
+            "FinishTime": "2023-02-25T12:57:21.049427644Z",
+            "ExecTimeNS": 1026269,
+            "OutFiles": {
+                "start": "start.txt"
+            },
+            "Upstream": {}
+        }
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "ID": "0rclf9t93he04fvegt0t",
+    "ProcessName": "atcount2",
+    "Command": "sed -n $(cat ../start.txt),$(($(cat ../start.txt) + $(cat ../count.txt)))p /home/ubuntu/tmp/y_fasta/dna_segment_2 | fold -w 1 | grep '[AT]' | wc -l | awk '{ print $1 }' \u003e chry.fa.atcnt2",
+    "Params": {},
+    "Tags": {},
+    "StartTime": "2023-02-25T13:01:24.024786812Z",
+    "FinishTime": "2023-02-25T13:01:24.030731971Z",
+    "ExecTimeNS": 5945159,
+    "OutFiles": {
+        "atcount": "chry.fa.atcnt2"
+    },
+    "Upstream": {
+        "count.txt": {
+            "ID": "n7xzdefed3m8xhq3valr",
+            "ProcessName": "count",
+            "Command": "echo 16 \u003e count.txt",
+            "Params": {},
+            "Tags": {},
+            "StartTime": "2023-02-25T13:01:24.023248019Z",
+            "FinishTime": "2023-02-25T13:01:24.024266835Z",
+            "ExecTimeNS": 1018806,
+            "OutFiles": {
+                "count": "count.txt"
+            },
+            "Upstream": {}
+        },
+        "start.txt": {
+            "ID": "pphc5xu8mb08hl33p6tu",
+            "ProcessName": "start",
+            "Command": "echo 92 \u003e start.txt",
+            "Params": {},
+            "Tags": {},
+            "StartTime": "2023-02-25T13:01:24.023139444Z",
+            "FinishTime": "2023-02-25T13:01:24.024154345Z",
+            "ExecTimeNS": 1014900,
+            "OutFiles": {
+                "start": "start.txt"
+            },
+            "Upstream": {}
+        }
+    }
+}
