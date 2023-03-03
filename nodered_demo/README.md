@@ -3,13 +3,24 @@ This demo showcases application of causal effect estimation to Node-RED.
 ## Demo specific requirements
 Obviously, Node-RED. Running it with Docker is sufficient for the demo, instructions here: https://nodered.org/docs/getting-started/docker
 
-We make extensive use of msg profiler node, which is found here: https://github.com/bartbutenaers/node-red-contrib-msg-profiler . Excellent documentation makes it easy to add this node to your Node-RED and to use it too!
+We make extensive use of msg profiler node, which is found here: https://github.com/bartbutenaers/node-red-contrib-msg-profiler . Excellent documentation makes it easy to add this node to your Node-RED and to use it too! Specifically, you'd need to run bash inside the Node-RED contrainer (see below), execute install command, restart the container, done.
 
-The flow is a slightly extended version of Example 3 in OpenEEW demos: https://github.com/openeew/openeew-nodered . We add a few more nodes for added complexity.
+Two more packages are required, and can be installed directly from inside the Node-RED: `node-red-dashboard` and `node-red-node-ui-table`. Restart after installation is recommended.
+
+The flow is a slightly extended version of Example 3 in OpenEEW demos: https://github.com/openeew/openeew-nodered . We add a few more nodes for more complexity.
+
+## How to get data
+The demo runs from the UI dashboard. Copy the flow you need, export it to Node-RED (Menu -> Export), click "Deploy" and navigate to `<nodered-uri>/ui`, e.g. `127.0.0.1:1880/ui`. There choose time and place, max duration, enable Auto-play, and hit "Retrieve data and plot". All data can be found in containers `/data/trace.log` file.
+
+Randomly searching for combination of time and place that has data can be tricky, so one that works is:
+* Device: 006
+* Date: 03/01/2020
+* Hour: 12AM
+* 5min period: any
 
 ## Description
 
-The demo displays a dashboard on which user can plot seismic data for certain regions, mostly in Mexico. We extend it in several ways:
+The demo displays a dashboard on which user can plot seismic data around the Caribbean. We extend it in several ways:
 * Allow auto-play function to display the max of 600 minutes instead of 60.
 * Add a node that detects earthquake and displays corresponding message.
 * Add a delay node to simulate additional delay.
