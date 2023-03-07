@@ -112,6 +112,19 @@ func main() {
 	gcrat.In("gcsum").From(gcsum.Out("sum"))
 	gcrat.In("atsum").From(atsum.Out("sum"))
 
+	// if graph of the workflow is desired
+	// uncomment line below
+	// one caveat is that by default, if you just call PlotGraphDPF,
+	// this produces graph with all ports named
+	// and that looks messy
+	// so as a workaround one can produce dot file
+	// then edit it manually to get rid of port names
+	// and then covert it to PDF with
+	//   dot -Tpdf workflow_graph.dot -o workflow_graph.dot.pdf
+	// also note this required graphviz installed on our system
+        
+	//wf.PlotGraph("workflow_graph.dot")
+
 	// === RUN PIPELINE ===========================================================================
 
 	wf.Run()
