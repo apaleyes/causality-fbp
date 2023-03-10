@@ -123,7 +123,7 @@ func main() {
 	//   dot -Tpdf workflow_graph.dot -o workflow_graph.dot.pdf
 	// also note this required graphviz installed on our system
         
-	//wf.PlotGraph("workflow_graph.dot")
+	wf.PlotGraph("workflow_graph.dot")
 
 	// === RUN PIPELINE ===========================================================================
 
