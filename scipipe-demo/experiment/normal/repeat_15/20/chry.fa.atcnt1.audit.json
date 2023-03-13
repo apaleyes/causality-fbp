@@ -1,41 +1,27 @@
 {
-    "ID": "6e35pzz5c0hsz55uovgw",
+    "ID": "k9ow0dwdydlfd8n1tls3",
     "ProcessName": "atcount1",
-    "Command": "sed -n $(cat ../start.txt),$(($(cat ../start.txt) + $(cat ../count.txt)))p /home/ubuntu/tmp/y_fasta/dna_segment_1 | fold -w 1 | grep '[AT]' | wc -l | awk '{ print $1 }' \u003e chry.fa.atcnt1",
+    "Command": "sed -n 1,$(cat ../count1.txt)p /home/ubuntu/projects/causality-fbp/scipipe-demo/dna_segment_1 | fold -w 1 | grep '[AT]' | wc -l | awk '{ print $1 }' \u003e chry.fa.atcnt1",
     "Params": {},
     "Tags": {},
-    "StartTime": "2023-02-25T12:57:42.940687257Z",
-    "FinishTime": "2023-02-25T12:57:42.946207191Z",
-    "ExecTimeNS": 5519944,
+    "StartTime": "2023-03-13T02:27:23.499431195Z",
+    "FinishTime": "2023-03-13T02:27:23.504150604Z",
+    "ExecTimeNS": 4719438,
     "OutFiles": {
         "atcount": "chry.fa.atcnt1"
     },
     "Upstream": {
-        "count.txt": {
-            "ID": "jh4u87e16354vdvarfbh",
-            "ProcessName": "count",
-            "Command": "echo 82 \u003e count.txt",
+        "count1.txt": {
+            "ID": "v9cgck71bgxv6zeeev5q",
+            "ProcessName": "count1",
+            "Command": "echo 30 \u003e count1.txt",
             "Params": {},
             "Tags": {},
-            "StartTime": "2023-02-25T12:57:42.938805557Z",
-            "FinishTime": "2023-02-25T12:57:42.940097389Z",
-            "ExecTimeNS": 1291832,
+            "StartTime": "2023-03-13T02:27:23.498058292Z",
+            "FinishTime": "2023-03-13T02:27:23.499041954Z",
+            "ExecTimeNS": 983652,
             "OutFiles": {
-                "count": "count.txt"
-            },
-            "Upstream": {}
-        },
-        "start.txt": {
-            "ID": "y574y25b4t5nlincn3q7",
-            "ProcessName": "start",
-            "Command": "echo 98 \u003e start.txt",
-            "Params": {},
-            "Tags": {},
-            "StartTime": "2023-02-25T12:57:42.938687636Z",
-            "FinishTime": "2023-02-25T12:57:42.939988706Z",
-            "ExecTimeNS": 1301100,
-            "OutFiles": {
-                "start": "start.txt"
+                "count": "count1.txt"
             },
             "Upstream": {}
         }

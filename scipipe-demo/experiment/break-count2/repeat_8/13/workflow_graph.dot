@@ -1,0 +1,29 @@
+digraph "gc_ratio_wf" {
+  rankdir=LR;
+  graph [fontname="Arial",fontsize=13,color="#384A52",fontcolor="#384A52"];
+  node  [fontname="Arial",fontsize=11,color="#384A52",fontcolor="#384A52",fillcolor="#EFF2F5",shape=box,style=filled];
+  edge  [fontname="Arial",fontsize=9, color="#384A52",fontcolor="#384A52"];
+  "atcat" [shape=box];
+  "atcount1" [shape=box];
+  "atcount2" [shape=box];
+  "atsum" [shape=box];
+  "count1" [shape=box];
+  "count2" [shape=box];
+  "gccat" [shape=box];
+  "gccount1" [shape=box];
+  "gccount2" [shape=box];
+  "gcratio" [shape=box];
+  "gcsum" [shape=box];
+  "atcat" -> "atsum" [taillabel="out", headlabel="in"];
+  "atcount1" -> "atcat" [taillabel="atcount", headlabel="in"];
+  "atcount2" -> "atcat" [taillabel="atcount", headlabel="in"];
+  "atsum" -> "gcratio" [taillabel="sum", headlabel="atsum"];
+  "count1" -> "atcount1" [taillabel="count", headlabel="count"];
+  "count1" -> "gccount1" [taillabel="count", headlabel="count"];
+  "count2" -> "gccount2" [taillabel="count", headlabel="count"];
+  "count2" -> "atcount2" [taillabel="count", headlabel="count"];
+  "gccat" -> "gcsum" [taillabel="out", headlabel="in"];
+  "gccount1" -> "gccat" [taillabel="gccount", headlabel="in"];
+  "gccount2" -> "gccat" [taillabel="gccount", headlabel="in"];
+  "gcsum" -> "gcratio" [taillabel="sum", headlabel="gcsum"];
+}

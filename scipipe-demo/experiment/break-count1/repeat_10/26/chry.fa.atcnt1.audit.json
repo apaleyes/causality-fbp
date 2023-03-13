@@ -1,0 +1,29 @@
+{
+    "ID": "mltpobqcdgdj8mv7ydum",
+    "ProcessName": "atcount1",
+    "Command": "sed -n 1,$(cat ../count1.txt)p /home/ubuntu/projects/causality-fbp/scipipe-demo/dna_segment_1 | fold -w 1 | grep '[AT]' | wc -l | awk '{ print $1 }' \u003e chry.fa.atcnt1",
+    "Params": {},
+    "Tags": {},
+    "StartTime": "2023-03-13T02:24:32.564752759Z",
+    "FinishTime": "2023-03-13T02:24:32.568341827Z",
+    "ExecTimeNS": 3589068,
+    "OutFiles": {
+        "atcount": "chry.fa.atcnt1"
+    },
+    "Upstream": {
+        "count1.txt": {
+            "ID": "nrmkxbz4zk6vqf2hcf0l",
+            "ProcessName": "count1",
+            "Command": "echo 5 \u003e count1.txt",
+            "Params": {},
+            "Tags": {},
+            "StartTime": "2023-03-13T02:24:32.563483764Z",
+            "FinishTime": "2023-03-13T02:24:32.564409275Z",
+            "ExecTimeNS": 925501,
+            "OutFiles": {
+                "count": "count1.txt"
+            },
+            "Upstream": {}
+        }
+    }
+}

@@ -1,0 +1,25 @@
+digraph "gc_ratio_wf" {
+  rankdir=LR;
+  graph [fontname="Arial",fontsize=13,color="#384A52",fontcolor="#384A52"];
+  node  [fontname="Arial",fontsize=11,color="#384A52",fontcolor="#384A52",fillcolor="#EFF2F5",shape=box,style=filled];
+  edge  [fontname="Arial",fontsize=9, color="#384A52",fontcolor="#384A52"];
+  "atcount1" [shape=box];
+  "atcount2" [shape=box];
+  "atsum" [shape=box];
+  "count1" [shape=box];
+  "count2" [shape=box];
+  "gccount1" [shape=box];
+  "gccount2" [shape=box];
+  "gcratio" [shape=box];
+  "gcsum" [shape=box];
+  "atcount1" -> "atsum" [taillabel="", headlabel=""];
+  "atcount2" -> "atsum" [taillabel="", headlabel=""];
+  "atsum" -> "gcratio" [taillabel="", headlabel=""];
+  "count1" -> "gccount1" [taillabel="", headlabel=""];
+  "count1" -> "atcount1" [taillabel="", headlabel=""];
+  "count2" -> "gccount2" [taillabel="", headlabel=""];
+  "count2" -> "atcount2" [taillabel="", headlabel=""];
+  "gccount1" -> "gcsum" [taillabel="", headlabel=""];
+  "gccount2" -> "gcsum" [taillabel="", headlabel=""];
+  "gcsum" -> "gcratio" [taillabel="", headlabel=""];
+}

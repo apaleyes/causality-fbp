@@ -1,0 +1,29 @@
+{
+    "ID": "epbdgxi859o0dtkt1ym0",
+    "ProcessName": "gccount1",
+    "Command": "sed -n 1,$(cat ../count1.txt)p /home/ubuntu/projects/causality-fbp/scipipe-demo/dna_segment_1 | fold -w 1 | grep '[GC]' | wc -l | awk '{ print $1 }' \u003e chry.fa.gccnt1",
+    "Params": {},
+    "Tags": {},
+    "StartTime": "2023-03-13T02:23:16.360576824Z",
+    "FinishTime": "2023-03-13T02:23:16.365527568Z",
+    "ExecTimeNS": 4950744,
+    "OutFiles": {
+        "gccount": "chry.fa.gccnt1"
+    },
+    "Upstream": {
+        "count1.txt": {
+            "ID": "dt44zp83jbzzvph11w3c",
+            "ProcessName": "count1",
+            "Command": "echo 12 \u003e count1.txt",
+            "Params": {},
+            "Tags": {},
+            "StartTime": "2023-03-13T02:23:16.358967718Z",
+            "FinishTime": "2023-03-13T02:23:16.360130039Z",
+            "ExecTimeNS": 1162301,
+            "OutFiles": {
+                "count": "count1.txt"
+            },
+            "Upstream": {}
+        }
+    }
+}
